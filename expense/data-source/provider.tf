@@ -5,20 +5,7 @@ terraform {
       version = "5.48.0"
     }
   }
-
-
-
-#remote state
-
-
-  backend "s3" {
-    bucket = "surisetty-remote-state"
-    key    = "expense"
-    region = "us-east-1"
-    dynamodb_table = "surisetty-locking"
-  }
 }
-
 
 #provide authentication here
 provider "aws" {

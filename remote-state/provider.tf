@@ -13,7 +13,7 @@ terraform {
 
   backend "s3" {
     bucket = "surisetty-remote-state"
-    key    = "expense"
+    key    = "remote-state"
     region = "us-east-1"
     dynamodb_table = "surisetty-locking"
   }

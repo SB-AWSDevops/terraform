@@ -45,3 +45,13 @@ variable "allowed_cidr" {
     default = ["0.0.0.0/0"]
 }
 
+variable "zone_id"{
+
+    default = "Z012106839ZHX7ESVKOOI"
+}
+
+variable "domain_name"{
+
+    default = "surisetty.online"
+}
+
