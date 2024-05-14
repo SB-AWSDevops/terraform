@@ -23,16 +23,18 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 
-resource "aws_instance" "db"{
+resource "aws_instance" "expense"{
 
-    ami = "ami-090252cbe067a9e58"
-    instance_type = "t2.micro"
+    count = length(var.instance_names)
+    ami = var.image_id
+    instance_type = var.instance_names[count.index] == "db" ? "t3.small" : "t3.micro"
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-
-    tags = {
-        Name = "db server"
-        CreatedBy = "PremDas"
-    }
-
+    tags = merge(
+      var.common_tags,
+      {
+        Name = var.instance_names[count.index]
+        Module = var.instance_names[count.index]
+      }
+    )
 
 }
