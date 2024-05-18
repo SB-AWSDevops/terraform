@@ -1,5 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
+*./terraform-multi-env*
+*./terraform-multi-env/workspaces*
 
 # .tfstate files
 *.tfstate
